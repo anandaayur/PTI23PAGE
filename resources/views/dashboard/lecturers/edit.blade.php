@@ -29,7 +29,7 @@
     <div class="container-xl">
       <div class="row row-deck row-cards justify-content-center">
         <div class="col-md-6">
-          <form action="{{ route('admin.dashboard.lecturers.update', $lecturer->id) }}" class="card" method="POST"
+          <form action="{{ route('admin.dashboard.lecturers.update', $lecturer['id']) }}" class="card" method="POST"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -40,7 +40,7 @@
                 <div class="col">
                   <label class="form-label required">Nama</label>
                   <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                    placeholder="Masukkan nama Dosen" value="{{ old('name') ?? $lecturer->name }}" />
+                    placeholder="Masukkan nama Dosen" value="{{ old('name') ?? $lecturer['name'] }}" />
                   @error('name')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -52,7 +52,7 @@
                 <div class="col">
                   <label class="form-label required">Email</label>
                   <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
-                    placeholder="Masukkan nama Dosen" value="{{ old('email') ?? $lecturer->email }}" />
+                    placeholder="Masukkan nama Dosen" value="{{ old('email') ?? $lecturer['email'] }}" />
                   @error('email')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -64,7 +64,7 @@
                 <div class="col">
                   <label class="form-label">Telepon</label>
                   <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
-                    placeholder="Masukkan nama Dosen" value="{{ old('phone') ?? $lecturer->phone }}" />
+                    placeholder="Masukkan nama Dosen" value="{{ old('phone') ?? $lecturer['phone'] }}" />
                   @error('phone')
                     <div class="invalid-feedback">
                       {{ $message }}

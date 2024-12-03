@@ -132,18 +132,18 @@
                     <tr>
                       <td class="text-muted">{{ $loop->iteration + $lecturers->firstItem() - 1 }}</td>
                       <td class="text-muted">
-                        <span {{ add_title_tooltip($lecturer->name ?? '-', 30) }}>
-                          {{ mb_strimwidth($lecturer->name ?? '-', 0, 30, '...') }}
+                        <span {{ add_title_tooltip($lecturer['name']  ?? '-', 30) }}>
+                          {{ mb_strimwidth($lecturer['name'] ?? '-', 0, 30, '...') }}
                         </span>
                       </td>
                       <td class="text-muted">
-                        <span {{ add_title_tooltip($lecturer->email ?? '-', 30) }}>
-                          {{ mb_strimwidth($lecturer->email ?? '-', 0, 30, '...') }}
+                        <span {{ add_title_tooltip($lecturer['email']  ?? '-', 30) }}>
+                          {{ mb_strimwidth($lecturer['email'] ?? '-', 0, 30, '...') }}
                         </span>
                       </td>
                       <td class="text-muted">
-                        <span {{ add_title_tooltip($lecturer->phone ?? '-', 30) }}>
-                          {{ mb_strimwidth($lecturer->phone ?? '-', 0, 30, '...') }}
+                        <span {{ add_title_tooltip($lecturer['phone']  ?? '-', 30) }}>
+                          {{ mb_strimwidth($lecturer['phone'] ?? '-', 0, 30, '...') }}
                         </span>
                       </td>
                       <td class="text-muted">
@@ -159,7 +159,7 @@
                           <path d="M3 11h16" />
                           <path d="M18 16.496v1.504l1 1" />
                         </svg>
-                        {{ formatDate($lecturer->created_at, 'd F Y H:i') }}
+                        {{ formatDate($lecturer['created_at'] ?? null, 'd F Y H:i') }}
                       </td>
                       <td>
                         <div class="d-flex justify-content-center">
@@ -179,7 +179,7 @@
                           </button>
                           <div class="text-muted dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item"
-                              href="{{ route('admin.dashboard.lecturers.edit', $lecturer->id) }}">
+                              href="{{ route('admin.dashboard.lecturers.edit', $lecturer['id']) }}">
                               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit me-2"
                                 width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                                 stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -194,7 +194,7 @@
                               Ubah
                             </a>
                             <button class="dropdown-item btn-action-delete"
-                              data-action="{{ route('admin.dashboard.lecturers.destroy', $lecturer->id) }}"
+                              data-action="{{ route('admin.dashboard.lecturers.destroy', $lecturer['id']) }}"
                               data-bs-toggle="modal" data-bs-target="#modalDelete">
                               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24"
                                 height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
